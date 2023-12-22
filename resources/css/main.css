@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+    --activeColor: #941BF3;
+    --hoverActiveColor: #6028bf;
+    --background: #3d3d3d;
+    --templatesBackground: #2a2a2a;
+    --inputBorder: #718096;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', Verdana;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+header {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px ;
+    background-color: var(--templatesBackground);
+}
+
+.header-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-wrapper > .logo {
+    width: auto;
+    height: 100%;
+    font-size: 42px;
+    color: #803ef3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header__links {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.header__links > a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    transition: all 200ms ease-in-out;
+}
+
+.header__links > a:hover {
+    color: var(--activeColor);
+}
+
+main {
+    width: 100%;
+    max-width: 1560px;
+    min-height: 84vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #FFFFFF;
+}
+
+section {
+    position: relative;
+    width: 90%;
+    max-width: 1560px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+.admin-link {
+    font-size: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+form {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 80px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
+
+form > h2 {
+    font-size: 28px;
+}
+
+.form-group {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form > input {
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    color: #c8c8d5;
+    padding: 5px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid var(--inputBorder);
+}
+
+form > input::placeholder {
+    color: #c8c8d5;
+}
+
+form > input:focus {
+    outline: 0;
+}
+
+form > button {
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    background-color: var(--activeColor);
+    color: #FFFFFF;
+    font-size: 24px;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 200ms ease-in-out;
+}
+
+form > button:hover {
+    background-color: var(--hoverActiveColor);
+}
+
+form #description {
+    height: 100px;
+    resize: none;
+}
+
+.list {
+    font-size: 28px;
+    color: #FFFFFF;
+}
+
+.profile {
+    width: 100%;
+    max-width: 960px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.profile > img {
+    width: 200px;
+    height: 200px;
+}
+
+.profile__info {
+    width: 100%;
+    max-width: 740px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile__input {
+    width: 360px;
+    height: 60px;
+    font-size: 24px;
+    color: #c8c8d5;
+    padding: 5px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid var(--inputBorder);
+}
+
+.profile__btn {
+    cursor: pointer;
+    width: 240px;
+    height: 40px;
+    background-color: var(--activeColor);
+    color: #FFFFFF;
+    font-size: 24px;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 200ms ease-in-out;
+}
+
+.profile__btn:hover {
+    background-color: var(--hoverActiveColor);
+}
+
+footer {
+    width: 100%;
+    min-height: 80px;
+    height: auto;
+    padding: 20px 0;
+    background-color: var(--templatesBackground);
+}
