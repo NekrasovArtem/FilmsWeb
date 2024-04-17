@@ -31,7 +31,10 @@ class FranchiseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Franchise::create([
+            'name' => $request->franchise
+        ]);
+        return view('add-franchise');
     }
 
     /**

@@ -91,15 +91,15 @@
             </div>
             <div class="form-group">
                 <label for="description">Описание:</label>
-                <textarea type="text" name="description" id="description" required></textarea>
+                <textarea name="description" id="description" required></textarea>
             </div>
             <div class="form-group">
                 <label for="trailer">Трейлер:</label>
-                <input type="text" name="trailer" id="trailer" required>
+                <input type="text" name="trailer" id="trailer">
             </div>
             <div class="form-group">
                 <label for="video">Видео:</label>
-                <input type="text" name="video" id="video" required>
+                <input type="text" name="video" id="video">
             </div>
             <div class="form-group">
                 <label for="episodes">Количество эпизодов:</label>
@@ -111,6 +111,7 @@
                     <option value="movie">Фильм</option>
                     <option value="tv-series">Сериал</option>
                     <option value="cartoon">Мультфильм</option>
+                    <option value="anime">Аниме</option>
                 </select>
             </div>
             <a href="{{ route('add-movie.create') }}"><button type="submit">Добавить</button></a>

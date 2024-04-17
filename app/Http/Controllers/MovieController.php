@@ -6,6 +6,7 @@ use App\Models\Genre;
 use App\Models\Movie;
 use App\Models\Franchise;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MovieController extends Controller
 {
@@ -15,8 +16,18 @@ class MovieController extends Controller
     public function index()
     {
         $films = Movie::where('type', 'movie')->get();
+        $serials = Movie::where('type', 'tv-series')->get();
+        $cartoons = Movie::where('type', 'cartoon')->get();
+        $anime = Movie::where('type', 'anime')->get();
+
+        $allMovies = Movie::all();
+        $randomMovie = $allMovies[rand(0, count($allMovies) - 1)];
         return view('home', [
-            'films' => $films
+            'films' => $films,
+            'serials' => $serials,
+            'cartoons' => $cartoons,
+            'anime' => $anime,
+            'randomMovie' => $randomMovie,
         ]);
     }
 
@@ -50,14 +61,15 @@ class MovieController extends Controller
             'age' => 'required',
             'time' => 'required',
             'description' => 'required',
-            'trailer' => 'required',
-            'video' => 'required',
             'episodes' => 'required',
             'type' => 'required'
         ]);
-        $path = $request->poster->store('image', 'public');
+        $file = $request->file('poster');
+
+        Storage::disk('public')->putFileAs($file, $file->getClientOriginalName());
+
         Movie::create([
-            'poster' => $path
+            'poster' => 'uploads/' . $file->getClientOriginalName(),
         ] + $request->all());
         return back()->with('success', 'Фильм успешно добавлен.');
     }
@@ -73,9 +85,25 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $movie = Movie::select('movies.*', 'genre_one.name as genre_one', 'genre_two.name as genre_two', 'genre_three.name as genre_three')
+                    ->leftJoin('genres as genre_one', 'movies.genre_id_one', '=', 'genre_one.id')
+                    ->leftJoin('genres as genre_two', 'movies.genre_id_two', '=', 'genre_two.id')
+                    ->leftJoin('genres as genre_three', 'movies.genre_id_three', '=', 'genre_three.id')
+                    ->where(['movies.id' => $request->movie])->first();
+        return view('movie', [
+            'movie' => $movie
+        ]);
+    }
+
+    public function showType(Request $request)
+    {
+        $movies = Movie::where(['type' => $request->type])->get();
+        return view('type', [
+            'type' => $request->type,
+            'movies' => $movies
+        ]);
     }
 
     /**

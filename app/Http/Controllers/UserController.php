@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -64,14 +65,16 @@ class UserController extends Controller
             'password_repeat' => 'required'
         ]);
 
-        $path = $request->image->store('image', 'public');
-
         if ($request->password != $request->password_repeat) {
             return back()->with('error', 'Пароли не совпадают.');
         }
 
+        $file = $request->file('image');
+
+        Storage::disk('public')->putFileAs($file, $file->getClientOriginalName());
+
         User::create([
-            'image' => $path,
+            'image' => 'uploads/' . $file->getClientOriginalName(),
             'password' => Hash::make($request->password),
         ] + $request->all());
         

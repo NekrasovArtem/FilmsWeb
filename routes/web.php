@@ -64,3 +64,11 @@ Route::get('/add-franchise', function () {
 Route::post('/add-franchise', [
     FranchiseController::class, 'store'
 ])->name('add-franchise.store');
+
+Route::get('/movie/{movie}', [
+    MovieController::class, 'show'
+])->name('movie.show');
+
+Route::get('/type/{type}', [
+    MovieController::class, 'showType'
+])->name('type.showType');

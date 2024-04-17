@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="FilmsWeb - онлайн-кинотеатр" />
-    <meta property="og:description" content="Фильмы, сериалы и мультфильмы." />
+    <meta property="og:description" content="Фильмы, сериалы, мультфильмы и аниме." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="" />
     <meta property="og:url" content="" />
     <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/resources/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/resources/css/main.css">
     <title>@yield('title')</title>
 </head>
 <body>

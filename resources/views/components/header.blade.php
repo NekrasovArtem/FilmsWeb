@@ -1,12 +1,13 @@
 <header>
-    <section class="header-wrapper">
-        <a href="./">
-            <img src="{{ asset('storage') . '/image/logo.svg' }}" alt="Логотип">
+    <div class="header-wrapper">
+        <a href="/">
+            <img src="{{ asset('public/storage') . '/image/logo.svg' }}" alt="Логотип">
         </a>
         <div class="header__links">
-            <a href="./films">Фильмы</a>
-            <a href="./series">Сериалы</a>
-            <a href="./cartoons">Мультфильмы</a>
+            <a href="{{ route('type.showType', ['type' => 'movie']) }}">Фильмы</a>
+            <a href="{{ route('type.showType', ['type' => 'tv-series']) }}">Сериалы</a>
+            <a href="{{ route('type.showType', ['type' => 'cartoon']) }}">Мультфильмы</a>
+            <a href="{{ route('type.showType', ['type' => 'anime']) }}">Аниме</a>
             @guest()
             <a href="{{ route('registration') }}">Регистрация</a>
             <a href="{{ route('login') }}">Войти</a>
@@ -16,5 +17,5 @@
             <a class="profile_btn-wrapper" href="{{ route('logout') }}"><button class="profile__btn" type="submit">Выйти</button></a>
             @endauth
         </div>
-    </section>
+    </div>
 </header>
